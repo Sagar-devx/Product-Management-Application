@@ -5,13 +5,13 @@ A simple **Product Management Application** built using **Spring MVC**, **Hibern
 ## Features
 
 - **CRUD Operations** on products:
-                                  - **Create**: Add a new product with name, description, and price.
-                                  - **Read**: View all products in a landing page list.
-                                  - **Update**: Edit existing product details.
-                                  - **Delete**: Remove products from the list.
-                                  - **Dynamic Data Display**: Data is fetched from the database using HibernateTemplate and displayed on JSP pages.
-                                  - **Bootstrap 4 UI** for user-friendly forms.
-                                  - Fully functional **landing page** showing all products.
+                                  - **Create**: Add a new product with name, description, and price.<br>
+                                  - **Read**: View all products in a landing page list.<br>
+                                  - **Update**: Edit existing product details.<br>
+                                  - **Delete**: Remove products from the list.<br>
+                                  - **Dynamic Data Display**: Data is fetched from the database using HibernateTemplate and displayed on JSP pages.<br>
+                                  - **Bootstrap 4 UI** for user-friendly forms.<br>
+                                  - Fully functional **landing page** showing all products.<br>
 
 ## Tech Stack
 
@@ -25,12 +25,12 @@ A simple **Product Management Application** built using **Spring MVC**, **Hibern
 ## Project Structure
 
 ProductCRUD/
-├── src/main/java/
-│ ├── controller/ # Spring MVC Controllers
-│ ├── dao/ # DAO classes using HibernateTemplate
-│ ├── model/ # Product model
-├── src/main/webapp/
-│ ├── WEB-INF/views/ # JSP pages (landing, add, update)
+├── src/main/java/<br>
+│ ├── controller/ # Spring MVC Controllers<br>
+│ ├── dao/ # DAO classes using HibernateTemplate<br>
+│ ├── model/ # Product model<br>
+├── src/main/webapp/<br>
+│ ├── WEB-INF/views/ # JSP pages (landing, add, update)<br>
 ├── pom.xml # Maven dependencies
 
 
