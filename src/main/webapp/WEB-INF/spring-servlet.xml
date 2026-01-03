@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/mvc 
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+            http://www.springframework.org/schema/tx
+           http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+   
+   <!-- Enables annotation -->
+   
+    <mvc:annotation-driven/>
+
+       <!--it scan product package for Controllers, Services, DAO -->
+   
+    <context:component-scan base-package="product" />
+    
+            <!-- Database Configuration using SQL Server -->
+   
+    <bean name="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        <property name="url" value="jdbc:sqlserver://localhost\\SQLEXPRESS:1433;databaseName=Product;encrypt=false;trustServerCertificate=true"/>
+        <property name="username" value="sa"/>
+        <property name="password" value="password"/>
+    </bean>
+                
+                <!-- Hibernate SessionFactory Bean -->
+
+    <bean name="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="ds"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>   
+                <prop key="hibernate.show_sql">true</prop> 
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                 <value>product.Model.Product</value>
+            </list>
+        </property>
+    </bean>
+    
+                 <!-- Hibernate Template for easy DB operations -->
+
+
+    <bean name="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+         <!-- Transaction Manager for @Transactional -->
+ 
+    <bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    
+    <!-- Enable annotation-based transactions -->
+
+   
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    
+     <!-- View Resolver to resolve JSP files -->
+
+   
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>
