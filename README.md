@@ -4,7 +4,7 @@ A simple **Product Management Application** built using **Spring MVC**, **Hibern
 
 ## Features
 
-- **CRUD Operations** on products:
+- **CRUD Operations** on products:<br>
                                   - **Create**: Add a new product with name, description, and price.<br>
                                   - **Read**: View all products in a landing page list.<br>
                                   - **Update**: Edit existing product details.<br>
@@ -24,7 +24,7 @@ A simple **Product Management Application** built using **Spring MVC**, **Hibern
 
 ## Project Structure
 
-ProductCRUD/
+ProductCRUD/<br>
 ├── src/main/java/<br>
 │ ├── controller/ # Spring MVC Controllers<br>
 │ ├── dao/ # DAO classes using HibernateTemplate<br>
@@ -40,12 +40,12 @@ ProductCRUD/
 
 2. **Open in Eclipse**  - Import the project as a Maven project.
 
-3.**Add Server** -      Add Tomcat 9.0.100 as your runtime server.
+ 3.**Add Server** -      Add Tomcat 9.0.100 as your runtime server.
 
-4.**Build Project** -    Ensure all Maven dependencies are downloaded.
+ 4.**Build Project** -    Ensure all Maven dependencies are downloaded.
                          Right-click project → Run As → Maven build.
 
-5.**Run Application** -  Right-click project → Run on Server → Tomcat 9
+ 5.**Run Application** -  Right-click project → Run on Server → Tomcat 9
                          Open in browser: http://localhost:8080/ProductCRUD/
                          
 
